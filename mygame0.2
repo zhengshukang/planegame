@@ -1,0 +1,62 @@
+package cn.sxt.game;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JFrame;
+
+/**
+ * 飞机杯游戏的主窗口
+ * @author 大猫
+ *
+ */
+public class MyGameFrame extends JFrame{
+	
+	
+	@Override
+	public void paint(Graphics g) {         //automatically be used. g just like a paint
+		
+		super.paint(g);                    //have to add,or the window will be black
+		Color c = g.getColor();           //the default color will not be changed
+		Font f = g.getFont();             //the style of word
+		g.setColor(Color.BLUE);
+		g.drawLine(100, 100, 300, 300);
+		g.drawRect(100, 100, 200, 200);
+		g.fillRect(100, 100, 150, 137);    
+		
+		g.setFont(new Font("songti",Font.BOLD,50));
+		g.drawString("ass hole", 400, 500);
+		
+		g.setFont(f);
+		g.setColor(c);                      //return to the default color
+	}
+	
+	/**
+	 * 初始化窗口
+	 */
+	public void launchFrame() {
+		this.setTitle("91大猫先生");
+		this.setVisible(true);
+		this.setSize(500, 500);
+		this.setLocation(300, 300);
+		
+		/*
+		 * 关闭窗口
+		 */
+		this.addWindowListener(new WindowAdapter() {
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+	}
+
+	public static void main(String[] args) {
+		MyGameFrame f = new MyGameFrame();
+		f.launchFrame();
+	}
+}
